@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+
+development:
+  <<: *default
+  database: enchilada
+  username: enchilada
+  password: PH_GEX_PASSWD1
+  host: 51.0.0.11
+  port: 3306
+
+test:
+  <<: *default
+  database: test_db_name
+
+production:
+  <<: *default
+  database: production_db_name

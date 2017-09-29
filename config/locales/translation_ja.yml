@@ -1,0 +1,330 @@
+ja:
+  messages:
+    please_sign_in: ログイン
+    login_failed: ログインに失敗しました。
+    destroy_succeed_fluentd_setting: "%{brand}の設定を削除しました"
+    available_new_fluentd_ui: '%{title} %{version}にアップデートできます。<a href="%{update_url}">システム情報ページへ</a>'
+    fluentd_start_failed:   "%{brand}の起動に失敗しました。"
+    fluentd_stop_failed:    "%{brand}の停止に失敗しました。"
+    fluentd_restart_failed: "%{brand}の再起動に失敗しました。"
+    fluentd_start_stop_delay_notice: "デーモンの%{action}を受け付けました。処理が完了するまで時間がかかる場合があります。"
+    password_successfully_updated: "パスワードを変更しました。"
+    fluentd_status_running: 稼働中
+    fluentd_status_stopped: 停止中
+    config_successfully_copied: "設定をコピーしました。反映させるには、 %{brand}を再起動してください。"
+    note_updating_success: "メモを更新しました。"
+    dryrun_is_passed: この設定でのdry-runが成功しました
+    no_diff: ファイル間の差異はありません。
+
+  terms: &terms
+    name: アカウント名
+    password: パスワード
+    sign_in: ログイン
+    sign_out: ログアウト
+    uninstall: アンインストール
+    install: インストール
+    install_latest: 最新版をインストール
+    installed_plugins: インストール済みプラグイン
+    upgrade: アップグレード
+    installed: インストール済み
+    not_installed: 未インストール
+    processing: 処理中
+    new_version: "%{version}があります"
+    plugins: プラグイン
+    misc: その他
+    version: バージョン
+    fluent_version: "fluentd %{version}"
+    no_alert: 通知なし
+    update_password: パスワード更新
+    detail: 詳細
+    cancel: キャンセル
+    create: 作成
+    update: 更新
+    save: 保存
+    edit: 編集
+    destroy: 削除
+    new: 新規作成
+    initial_setup: セットアップ
+    setup: "%{target}をセットアップ"
+    install_it: "%{target}をインストール"
+    installing: "インストール中: %{target}"
+    uninstalling: "アンインストール中: %{target}"
+    search: 検索
+    changeme_password: 'パスワードを初期設定から<a href="/user">変更</a>してください'
+    destroy_confirm_title: "%{target}を削除"
+    confirm_body: |
+      %{action}しますか？
+    reload_log: ログ更新
+    auto_reload: "自動更新(%{seconds}秒ごと)"
+    next: 次へ
+    prev: 前へ
+    advanced_setting: 高度な設定
+    notice_restart_for_config_edit: "※更新すると稼働中の%{brand}が再起動されます"
+    lines: 行
+    languages: 言語
+    backup_file: バックアップファイル
+    backup_time: バックアップ日時
+    note: メモ
+    reuse: 再利用
+    configtest: この設定を検証する(dry-run)
+
+  plugins:
+    view_on_rubygems_org: rubygems.orgで見る
+    common:
+      name: プラグイン名
+      status: 状態
+      authors: 作者
+      summary: 概要
+      category: カテゴリ
+      installed_version: インストール済みバージョン
+      latest_version: 最新バージョン
+      install_specific_version: このバージョンをインストール
+      install_latest_version: 最新バージョンをインストール
+      no_updates: 更新されたプラグインはありません
+      no_installed: インストールされたプラグインはありません
+    installed:
+      page_title: インストール済みプラグイン
+    recommended:
+      page_title: おすすめプラグイン
+    updated:
+      page_title: 更新のあったプラグイン
+
+  users:
+    show:
+      page_title: パスワード管理
+
+  fluentd:
+    common:
+      start: 開始
+      stop: 停止
+      restart: 再起動
+      log: ログ
+      stopped: 停止中
+      running: 稼働中
+      operation: プロセス詳細
+      edit_config: 設定ファイルの編集
+      config_file: 設定ファイル
+      page_title: "%{label}"
+      setup_in_tail: ファイル
+      setup_in_syslog: syslogプロトコル
+      setup_in_monitor_agent: 監視エージェント
+      setup_in_http: http
+      setup_in_forward: 転送（他Fluentdからの受信）
+      setup_out_td: Treasure Data
+      setup_out_stdout: 標準出力（ログ）
+      setup_out_mongo: MongoDB
+      setup_out_forward: 転送
+      setup_out_s3: AWS S3
+      setup_out_elasticsearch: Elasticsearch
+      finish: 設定する
+      fluentd_info: 設定情報
+      recent_errors: "直近 %{days} 日内のエラー"
+      raw_log_link: ログファイルをダウンロード
+      destroy_fluentd_setting: "%{brand}の設定情報を削除"
+      destroy_fluentd_setting_warning: |
+        %{brand}の設定を削除します。
+
+        <p>起動中の%{brand}は停止し、ログや設定ファイルはそのまま残存します。</p>
+      never_started_yet: "%{brand} は起動されたことがありません。"
+    show:
+      page_title: "ダッシュボード"
+    new:
+      page_title: 追加
+    edit:
+      page_title: 編集
+    log:
+      page_title: ログ
+    errors:
+      page_title: エラーログ
+      error_is_empty: エラーはありません
+    settings:
+      source_and_output:
+        page_title: ソースと出力先の追加
+        in: 入力
+        out: 出力
+        current: 現在の設定
+        setting_empty: 設定されていません
+      show:
+        page_title: 設定ファイルの編集
+        link_to_histories: さらに過去の履歴をみる
+      edit:
+        page_title: 設定ファイルの編集
+      out_forward:
+        option_guide: |
+          <a target="_blank" href="http://docs.fluentd.org/ja/articles/out_forward">out_forwardプラグインの解説</a>もご参照ください。
+        secondary_note: |
+          ※どのserverにも転送できなかった場合、上記のパスにファイルとしてデータが保存されます。
+        show:
+          page_title: フォワード設定
+      out_s3:
+        option_guide: |
+          fluent-plugin-s3プラグインのインストールが必要です。<br />
+          <a target="_blank" href="http://docs.fluentd.org/articles/out_s3">out_s3プラグインの解説</a>もご参照ください。
+        show:
+          page_title: AWS S3書き出し設定
+      out_td:
+        option_guide: |
+          fluent-plugin-tdプラグインのインストールが必要です。<br />
+        show:
+          page_title: Treasure Data書き出し設定
+      out_elasticsearch:
+        option_guide: |
+          fluent-plugin-elasticsearchプラグインのインストールが必要です。<br />
+          <a target="_blank" href="https://github.com/uken/fluent-plugin-elasticsearch">out_elasticsearchプラグインの解説</a>もご参照ください。
+        show:
+          page_title: Elasticsearch設定
+      out_mongo:
+        option_guide: |
+          fluent-plugin-mongoプラグインのインストールが必要です。<br />
+          <a target="_blank" href="http://docs.fluentd.org/ja/articles/out_mongo">out_mongoプラグインの解説</a>もご参照ください。
+        show:
+          page_title: MongoDB書き出し設定
+      out_stdout:
+        option_guide: |
+          標準出力（デーモンとして起動しているときはログファイル）へイベントを書き出します。<br />
+          <a target="_blank" href="http://docs.fluentd.org/ja/articles/out_stdout">out_stdoutプラグインの解説</a>もご参照ください。
+        show:
+          page_title: 標準出力（ログ）
+      in_syslog:
+        option_guide: |
+          <a target="_blank" href="http://docs.fluentd.org/ja/articles/in_syslog">in_syslogプラグイン解説ページ</a>もご参照ください。
+        show:
+          page_title: Syslog読み込み設定
+      in_monitor_agent:
+        option_guide: |
+          HTTP経由で現在稼働中のfluentdが使用しているconfigやプラグインをJSONやLTSV形式で取得できます。<br />
+          <a target="_blank" href="http://docs.fluentd.org/ja/articles/monitoring">監視エージェント</a>のページもご参照ください。
+        show:
+          page_title: 監視エージェント設定(monitor_agent)
+      in_http:
+        option_guide: |
+          http POSTからレコードを取得可能にします。<br />
+          URLパスはFluentdイベントログのタグとなり、ポストされたbody要素はレコードそのものになります。<br />
+          <a target="_blank" href="http://docs.fluentd.org/ja/articles/in_http">httpインプットプラグイン解説ページ</a>もご参照ください。
+        show:
+          page_title: http入力設定
+      in_forward:
+        option_guide: |
+          TCPソケットをリッスンし、イベントストリームを受信します。<br />
+          UDPソケットもリッスンし、ハートビートメッセージを受信します。<br />
+          他のFluentdインスタンス、fluent-catコマンドまたはクライアントライブラリーからイベントログを受信するために使用されます。<br />
+          <a target="_blank" href="http://docs.fluentd.org/ja/articles/in_forward">forwardインプットプラグイン解説ページ</a>もご参照ください。
+        show:
+          page_title: forward入力設定
+
+      in_tail_option_guide: |
+        <a target="_blank" href="http://docs.fluentd.org/ja/articles/in_tail">in_tailプラグインの解説ページ</a>や
+        <a target="_blank" href="http://fluentular.herokuapp.com/">Fluentular</a>もご参照ください。
+      in_tail:
+        notice_for_multiline_limit: "改行区切りで正規表現を入力してください。空行はカウントされません。21行目以降の入力は無視されます。"
+        notice_for_permission: "※%{user}ユーザーが読み込み可能なようにパーミッションやグループの設定をご確認ください。"
+        restart_from_first: 最初からやり直す
+        grok_manual: |
+          <p>
+          Grokの記法が使えます。例えば<code>%{INT:foo}</code>とすると、<code>/(?&lt;foo&gt;(?:[+-]?(?:[0-9]+)))/</code>という正規表現に変換されます。
+          </p>
+          <p>
+          使えるキー・値については<a href="http://grokdebug.herokuapp.com/patterns" target="_blank">リファレンス</a>をご確認ください。
+          </p>
+          <p>
+            <h4>例</h4>
+
+            <code>Nov 29 17:02:55 MacBook-Pro-2.local UserEventAgent[239] : cannot find fw daemon port 1102</code>というログに対し、<br />
+            <code>%{MONTH:month}%{SPACE}%{MONTHDAY:day} %{TIME:time} %{DATA} \[%{INT:pid}\]</code>というパターンを適用すると以下の結果が得られます。
+
+            <table class="table">
+            <thead>
+            <tr>
+            <th>キー名</th>
+            <th>値</th>
+            </tr>
+            </thead>
+
+              <tr>
+              <th>month</th><td>Nov</td>
+              </tr>
+              <tr>
+              <th>day</th><td>29</td>
+              </tr>
+              <tr>
+              <th>time</th><td>17:02:55</td>
+              </tr>
+              <tr>
+              <th>pid</th><td>239</td>
+              </tr>
+            </table>
+          </p>
+        show:
+          page_title: "ファイル読み込み | ファイルの選択"
+        after_file_choose:
+          page_title: "ファイル読み込み | フォーマットの設定"
+        after_format:
+          page_title: "ファイル読み込み | その他の設定"
+        confirm:
+          page_title: "ファイル読み込み | 確認"
+      history: 設定履歴
+      histories:
+        index:
+          page_title: "設定履歴 | 一覧"
+        show:
+          page_title: "設定履歴 | 詳細"
+          target_config: "対象設定"
+          current_config: "現在の設定"
+          diff_description: "現在の設定と対象設定(%{file_name})の差分(+-で表示)"
+          show_current: "> 現在の設定を見る"
+      running_backup:
+        title: "使用中の設定"
+        show:
+          page_title: "使用中の設定"
+          diff_description: "現在の設定と使用中の設定の差分(+-で表示)"
+          show_current: "> 現在の設定を見る"
+
+  misc:
+    information:
+      env: 環境変数
+      env_key: キー
+      env_value: 値
+      page_title: システム情報
+      update_fluentd_ui: "%{title}を更新"
+      update_fluentd_ui_caution: "※%{brand}は再起動されません"
+      download_system_information: システム情報をダウンロード
+    update_fluentd_ui:
+      update_title: "%{title} 更新"
+      updating: 更新中
+      update_finish: 更新が完了しました
+      failed: "更新に失敗しました。%{title}のログをご確認ください"
+
+  errors:
+    messages: &error_messages
+      wrong_password: が違います
+      lack_read_permission: の読み込み権限がありません
+      lack_write_permission: の書き込み権限がありません
+      is_a_directory: はディレクトリです。ファイルを指定してください
+      duplicated_conf: 同じ内容の設定がすでに存在しています
+      out_forward_blank_server: serverの設定がありません。
+
+  activemodel: &activemodel
+    errors:
+      messages:
+        <<: *error_messages
+
+    models:
+      user: user  #g
+
+    attributes:
+      user:
+        name: 名前
+        password_digest: password_digest  #g
+        remember_token: remember_token  #g
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: パスワード(確認)
+      fluentd:
+        log_file: ログファイル
+        pid_file: PIDファイル
+        config_file: 設定ファイル
+        variant: タイプ
+        api_endpoint: APIエンドポイント
+
+  activerecord: # for rspec
+    <<: *activemodel

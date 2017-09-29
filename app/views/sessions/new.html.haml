@@ -1,0 +1,13 @@
+.login-panel.panel.panel-default
+  .panel-heading
+    %h3.panel-title
+      = t('messages.please_sign_in')
+  .panel-body
+    = render partial: "shared/error"
+    = form_for(:session, url: sessions_path) do |f|
+      .form-group
+        = f.text_field :name, placeholder: t('terms.name'), class: "form-control"
+      .form-group
+        = f.password_field :password, placeholder: t('terms.password'), class: "form-control"
+
+      = submit_tag t("terms.sign_in"), class: "btn btn-success"

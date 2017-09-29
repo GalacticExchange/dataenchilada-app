@@ -1,0 +1,15 @@
+<%=source%>
+
+<match fluent.*>
+  @type stdout
+</match>
+
+<match **>
+  @type copy
+
+  <% outputs.each do |output| %>
+  <store>
+    <%=output%>
+  </store>
+  <% end %>
+</match>

@@ -1,0 +1,37 @@
+- page_title t('.page_title')
+
+.row.fluentd-setting-inout
+  - settings_types_with_icons.each do |type, params|
+    .col-lg-2.col-md-4.col-xs-12
+      .panel.panel-default
+        .panel-heading
+          %h4
+            = icon("#{params[:icon]} fa-lg")
+            = t("fluentd.common.setup_in_#{type}")
+        .panel-body
+          %p
+            = link_to('+ Add', send("daemon_setting_in_#{type}_path", @fluentd), class: %i(btn btn-default btn-block btn-success))
+
+= render "shared/vue/setting"
+#vue-setting
+  %h2
+    = t('.listeners')
+    .pull-right
+      %button.btn.btn-default.btn-sm{"v-on" => "click: update", "v-if" => "!loading"}= icon('fa-refresh')
+      %button.btn.btn-default.btn-sm{"v-if" => "loading"}= icon('fa-spin fa-refresh')
+  .row.fluentd-setting-inout
+    %div{"v-if" => "loaded && sections.listeners.length == 0"}
+      %p.empty= t('.setting_empty')
+    %div{"v-repeat" => "sections.listeners", "v-component" => "section"}
+
+  .current-settings
+    %h2
+      = t('.current')
+      .pull-right
+        %button.btn.btn-default.btn-sm{"v-on" => "click: update", "v-if" => "!loading"}= icon('fa-refresh')
+        %button.btn.btn-default.btn-sm{"v-if" => "loading"}= icon('fa-spin fa-refresh')
+    .row
+      .input
+        %div{"v-if" => "loaded && sections.sources.length == 0"}
+          %p.empty= t('.setting_empty')
+        %div{"v-repeat" => "sections.sources", "v-component" => "section"}

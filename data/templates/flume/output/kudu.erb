@@ -1,0 +1,17 @@
+agent.sources  = source1
+agent.channels = channel1
+agent.sinks = sink1
+agent.sources.source1.type = thrift
+agent.sources.source1.bind = 10.1.0.11
+agent.sources.source1.port = 56789
+agent.sources.source1.channels = channel1
+agent.channels.channel1.type = memory
+agent.channels.channel1.capacity = 10000
+agent.channels.channel1.transactionCapacity = 1000
+#agent.sinks.sink1.type = logger
+agent.sinks.sink1.channel = channel1
+agent.sinks.sink1.type = org.apache.kudu.flume.sink.KuduSink
+agent.sinks.sink1.masterAddresses = 51.77.1.42:7051
+agent.sinks.sink1.tableName = json
+agent.sinks.sink1.batchSize = 50
+agent.sinks.sink1.producer = KuduJsonProducer

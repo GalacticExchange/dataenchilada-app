@@ -1,0 +1,207 @@
+.bottom-margin {
+  margin-bottom: 10px;
+}
+
+table {
+  // mainly for /misc/information page
+  td {
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+  td:first-child {
+    white-space: nowrap;
+  }
+}
+
+// mainly for sidebar navigation
+.nav {
+  .current {
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+
+// visualize clickable area
+label {
+  cursor: pointer;
+}
+
+
+#page-wrapper {
+  padding-bottom: 2em;
+}
+
+
+// expand alert area width
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+    // width: 310px;
+    width: 400px;
+    min-width: 0;
+}
+
+
+
+#vue-notification {
+  .nothing {
+    padding: 1em 0;
+  }
+}
+
+// search field for DataTable to the right
+.dataTables_filter {
+  float: right;
+}
+
+
+
+
+#fluent-log {
+  pre .log {
+    max-height: 43em; // 30em * 1.42(line-height) = 42.6
+    overflow: auto;
+  }
+}
+
+
+
+#treeview {
+  .tree {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 1ex;
+    height: 40em;
+    overflow-y: auto;
+  }
+  .preview {
+    margin-top: 1em;
+  }
+  .vue-path {
+    cursor: pointer;
+    display: block;
+    height: 1.4em;
+
+    &:hover {
+      background-color: #d9d9d9;
+    }
+    &.selected {
+      background-color: #9cf;
+    }
+    .fa-folder, .fa-folder-open {
+      color: #69f;
+    }
+  }
+  .dirs {
+    padding: 1ex 0;
+    .dir {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 0 1ex;
+      margin: 0 1ex;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #e0e0ff;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    .fa-caret-right {
+      color: #bbb;
+    }
+  }
+}
+
+*[data-toggle="collapse"] {
+  cursor: pointer;
+}
+
+
+
+.ignore-rails-error-div {
+  .field_with_errors {
+    display: inline;
+  }
+}
+
+.form-group {
+  .form-group {
+    margin-left: 30px; // used at fluentd/settings/out_forward, nested config form
+  }
+}
+
+.fluentd-setting-inout {
+  .arrow-right {
+    text-align: center;
+    font-size: 36px;
+    padding-top: 64px;
+  }
+}
+
+.fluentd-ui-logo {
+  padding: 0;
+  img {
+    height: 50px;
+  }
+}
+
+
+
+.nav > li > a.section {
+  color: #777;
+}
+
+
+#vue-setting textarea {
+  min-height: 12em;
+  resize: both;
+}
+
+.fluentd-status {
+  .running {
+    color: #090;
+  }
+  .stopped {
+    color: #999;
+  }
+}
+
+.datetime {
+  white-space: nowrap;
+}
+.diff {
+  .deleted {
+    background-color: #fdd;
+  }
+  .added {
+    background-color: #dfd;
+  }
+}
+
+.frame-corner-radius {
+  border: 1px solid #ddd;
+  padding:10px 10px;
+  border-radius: 3px;
+  margin: 10px 0px;
+}
+
+small.listener-description {
+  margin-top: 4px;
+}
+
+pre.source-preview {
+  overflow-y: hidden;
+}
+
+.empty {
+  margin-left: 20px;
+}
+
+small.form-text {
+  position: relative;
+  top: -15px;
+}

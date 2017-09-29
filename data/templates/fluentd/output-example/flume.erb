@@ -1,0 +1,17 @@
+<source>
+@type tail
+path /home/khotkevych/test.json
+#path /home/khotkevych/.gex/gex_agent_log.log
+tag test
+format json
+read_from_head true
+pos_file /tmp/fluentd--14913941635.pos
+refresh_interval 5
+read_lines_limit 1
+</source>
+<match *>
+  @type flume
+  host 10.1.0.11
+  port 56789
+  flush_interval 1s
+</match>

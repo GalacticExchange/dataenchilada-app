@@ -1,0 +1,60 @@
+-#- if @fluentd.present?
+This is future Dashboard
+-#- page_title t('.page_title')
+-#.row
+-#  .col-xs-12
+-#    %div{class: "panel panel-#{@fluentd.agent.running? ? "success":"default"}"}
+-#      .panel-heading
+-#        %h4
+-#          - if @fluentd.agent.running?
+-#            = icon("fa-play")
+-#            = t("fluentd.common.running")
+-#          - else
+-#            = icon("fa-stop")
+-#            = t("fluentd.common.stopped")
+-#      .panel-body
+-#        - if flash[:error]
+-#          .alert.alert-danger= flash[:error]
+-#        = link_to icon("fa-play") << t("fluentd.common.start"), start_daemon_agent_path(@fluentd),     method: :put, class: "btn #{@fluentd.agent.running? ? "disabled btn-default" : "btn-primary"}"
+-#        = link_to icon("fa-stop") << t("fluentd.common.stop"), stop_daemon_agent_path(@fluentd),       method: :put, class: "btn #{@fluentd.agent.running? ? "btn-danger" : "disabled btn-default"}"
+-#        = link_to icon("fa-refresh") << t("fluentd.common.restart"), restart_daemon_agent_path(@fluentd), method: :put, class: "btn #{@fluentd.agent.running? ? "btn-warning" : "disabled btn-default"}"
+-#        .pull-right
+-#          = link_to icon("fa-file-text-o") << t("fluentd.common.view_log"), log_daemon_path, method: :get, class: "btn btn-primary"
+-#          = link_to icon("fa-file-text-o") << t("fluentd.common.view_error_log"), errors_daemon_path, method: :get, class: "btn btn-danger"
+
+  -#.row
+  -#  .col-xs-12
+  -#    .text-center
+  -#      = link_to icon("fa-plus") << t("fluentd.common.add_new_source"), source_daemon_setting_path, method: :get, class: "btn btn-lg btn-success"
+  -#= render "shared/vue/setting"
+  -##vue-setting.row
+  -#  .col-xs-12
+  -#    %h2
+  -#      = t('.listeners')
+  -#      -#.pull-right
+  -#        -#%button.btn.btn-default.btn-sm{"v-on" => "click: update", "v-if" => "!loading"}= icon('fa-refresh')
+  -#        -#%button.btn.btn-default.btn-sm{"v-if" => "loading"}= icon('fa-spin fa-refresh')
+  -#    .row.fluentd-setting-inout
+  -#      %div{"v-if" => "loaded && sections.listeners.length == 0"}
+  -#        %p.empty= t('.setting_empty')
+  -#      %div{"v-repeat" => "sections.listeners", "v-component" => "section"}
+  -#
+  -#    .current-settings
+  -#      %h2
+  -#        = t('.current')
+  -#        -#.pull-right
+  -#          -#%button.btn.btn-default.btn-sm{"v-on" => "click: update", "v-if" => "!loading"}= icon('fa-refresh')
+  -#          -#%button.btn.btn-default.btn-sm{"v-if" => "loading"}= icon('fa-spin fa-refresh')
+  -#      .row
+  -#        .input
+  -#          %div{"v-if" => "loaded && sections.sources.length == 0"}
+  -#            %p.empty= t('.setting_empty')
+  -#          %div{"v-repeat" => "sections.sources", "v-component" => "section"}
+  -#
+  -#-#.row
+  -#-#  .col-xs-12
+  -#-#    = preserve do # partial containing <pre>, so shouldn't break indent
+  -#-#      = render partial: "shared/vue/fluent_log", locals: { fluentd: @fluentd }
+-#
+-#- else
+-#  = render partial: "shared/initial_setup"

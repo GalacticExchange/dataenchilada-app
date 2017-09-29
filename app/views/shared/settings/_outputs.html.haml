@@ -1,0 +1,21 @@
+%h1.page-header
+  = "Choose outputs for your stream"
+-#.well
+-#  = raw t("fluentd.settings.#{target_plugin_name}.option_guide")
+
+= f.simple_fields_for :outputs do |f_output|
+  - Output::OUTPUT_TYPES.each do |key, value|
+    .well.well-sm
+      %h4{"data-toggle" => "collapse", "href" => "##{key}-options"}
+        = f_output.input key, as: :boolean, checked_value: true, unchecked_value: false
+      .collapse{id: "#{key}-options"}
+        = f_output.simple_fields_for key do |out_details|
+          = out_details.input Output::STREAM_FIELD_NAMES[key], :input_html => {class: "output-name form-control"}
+
+= f.button :submit, class:"btn btn-primary", :value=>"Save", "data-btn"=>"source-save", :data => { :disable_with => "Validating..." }
+
+:javascript
+  $('h4').click(function() {
+    var checkbox = $(this).find('input.boolean');
+    checkbox.prop("checked", !checkbox.prop("checked"));
+  });

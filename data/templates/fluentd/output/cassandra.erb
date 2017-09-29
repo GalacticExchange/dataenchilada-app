@@ -1,0 +1,12 @@
+
+  @type cassandra_driver
+
+  hosts <%=servers['cassandra']['host']%>
+
+  keyspace <%=servers['cassandra']['keyspace']%>
+  column_family <%=props['column_family']%>
+  schema  '{:id => :integer, :name => :string, :created_at => :string, :updated_at => :string}'
+  json_column json
+  pop_data_keys false #????
+  ttl 60
+

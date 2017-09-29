@@ -1,0 +1,194 @@
+defaults: &defaults
+  default_password: admin
+  default_log_tail_count: 30
+  histories_count_in_preview: 5
+  max_backup_files_count: 100
+  in_tail_preview_line_count: 40
+  recommended_plugins:
+    - category: filter
+      name: "rewrite-tag-filter"
+    - category: storage
+      name: "mongo"
+    - category: security
+      name: "secure-forward"
+    - category: routing
+      name: "forest"
+    - category: storage
+      name: "td"
+    - category: routing
+      name: "scribe"
+    - category: search
+      name: "elasticsearch"
+    - category: storage
+      name: "s3"
+    - category: routing
+      name: "config-expander"
+    - category: routing
+      name: "rewrite"
+    - category: processing
+      name: "flowcounter"
+    - category: processing
+      name: "datacounter"
+    - category: storage
+      name: "growthforecast"
+    - category: storage
+      name: "couch"
+    - category: processing
+      name: "numeric-counter"
+    - category: storage
+      name: "webhdfs"
+    - category: filter
+      name: "parser"
+    - category: storage
+      name: "file-alternative"
+    - category: data_source
+      name: "dstat"
+    - category: filter
+      name: "record-reformer"
+    - category: storage
+      name: "zabbix-simple-bufferd"
+    - category: processing
+      name: "numeric-monitor"
+    - category: notification
+      name: "ping-message"
+    - category: processing
+      name: "extract_query_params"
+    - category: processing
+      name: "norikra"
+    - category: notification
+      name: "cloudwatch"
+    - category: storage
+      name: "pghstore"
+    - category: filter
+      name: "map"
+    - category: notification
+      name: "notifier"
+    - category: filter
+      name: "grep"
+    - category: processing
+      name: "grepcounter"
+    - category: processing
+      name: "groupcounter"
+    - category: routing
+      name: "keep-forward"
+    - category: notification
+      name: "mail"
+    - category: filter
+      name: "record-modifier"
+    - category: notification
+      name: "sns"
+    - category: data_source
+      name: "munin"
+    - category: monitoring
+      name: "metricsense"
+    - category: storage
+      name: "sqs"
+    - category: processing
+      name: "datacalculator"
+    - category: filter
+      name: "amplifier-filter"
+    - category: filter
+      name: "sampling-filter"
+    - category: processing
+      name: "flatten"
+    - category: processing
+      name: "anomalydetect"
+    - category: notification
+      name: "ikachan"
+    - category: storage
+      name: "redis"
+    - category: storage
+      name: "redis-counter"
+    - category: storage
+      name: "kestrel"
+    - category: storage
+      name: "forward-aws"
+    - category: data_source
+      name: "snmp"
+    - category: processing
+      name: "stats"
+    - category: storage
+      name: "dynamodb"
+    - category: storage
+      name: "cassandra"
+    - category: storage
+      name: "cassandra-cql"
+    - category: data_source
+      name: "cloudstack"
+    - category: storage
+      name: "mysql"
+    - category: data_source
+      name: "mysql-query"
+    - category: data_source
+      name: "mysqlslowquery"
+    - category: storage
+      name: "redshift"
+    - category: data_source
+      name: "twitter"
+    - category: data_source
+      name: "nats"
+    - category: notification
+      name: "hipchat"
+    - category: processing
+      name: "histogram"
+    - category: routing
+      name: "hash-forward"
+    - category: storage
+      name: "zmq"
+    - category: monitoring
+      name: "zabbix"
+    - category: notification
+      name: "irc"
+    - category: processing
+      name: "mysql-replicator"
+    - category: processing
+      name: "geoip"
+    - category: filter
+      name: "suppress"
+    - category: filter
+      name: "filter"
+    - category: filter
+      name: "select"
+    - category: storage
+      name: "resque"
+    - category: data_source
+      name: "resque_stat"
+    - category: storage
+      name: "gamobile"
+    - category: storage
+      name: "jabber"
+    - category: processing
+      name: "time_parser"
+    - category: monitoring
+      name: "td-monitoring"
+    - category: filter
+      name: "reassemble"
+    - category: data_source
+      name: "jvmwatcher"
+    - category: data_source
+      name: "http-status"
+    - category: data_source
+      name: "df"
+    - category: processing
+      name: "typecast"
+    - category: data_source
+      name: "rds-slowlog"
+    - category: security
+      name: "anonymizer"
+    - category: search
+      name: "splunk"
+    - category: search
+      name: "splunkapi"
+    - category: notification
+      name: "boundio"
+    - category: notification
+      name: "growl"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

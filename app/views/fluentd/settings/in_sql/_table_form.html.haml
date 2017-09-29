@@ -1,0 +1,12 @@
+.col-xs-4.table-block
+  .well
+    %h4
+      = t('.table')
+      %span=index+1
+    - table.class::KEYS.each do |key|
+      .form-group
+        = label_tag "table_#{index}_#{key}", key.to_s.humanize
+        = text_field_tag "tables[][#{key}]", table[key], id: "table_#{index}_#{key}", class: %i(form-control)
+        = "<small class='form-text text-muted'>#{table.fields_descriptions[key]}</small>".html_safe
+    .row
+      %button.btn.btn-danger.center-block.bnt-small.remove-table-block{style: ("display: none" if table_count == 1)}= t('.remove')

@@ -1,0 +1,67 @@
+- content_for(:page_title) do
+  = "#{t("fluentd.settings.page_add")} #{t("fluentd.settings.#{target_plugin_name}.show.page_title")}"
+= vertical_simple_form_for(@agent, url: plugin_setting_form_action_url, defaults: { input_html: { class: "new-input" } }) do |f|
+  = render "shared/setting_errors"
+
+  .tab-content
+    #source.tab-pane.fade.in.active
+      %h1.page-header
+        = "#{t("fluentd.settings.page_add")} #{t("fluentd.settings.#{target_plugin_name}.show.page_title")}"
+      .well
+        = raw t("fluentd.settings.#{target_plugin_name}.option_guide")
+
+      = f.input :title, label: 'Name of Agent', input_html: {class: "form-control"}
+      = f.input :tag, label: 'Tag', input_html: {class: "form-control"}
+
+      = f.simple_fields_for :source do |f_source|
+        - @agent.source.common_options.each do |key|
+          - v = @agent.source.details.attributes[key.to_s]
+          = f_source.input key.to_sym, :input_html => { :value => v, class: "form-control"}
+          - if @agent.source.try(:fields_descriptions).present?
+            %small.form-text.text-muted= @agent.source.fields_descriptions[key]
+        - if @agent.source.advanced_options.present?
+          .well.well-sm
+            %h4{"data-toggle" => "collapse", "href" => "#advanced-setting"}
+              = icon('fa-caret-down')
+              = t('terms.advanced_setting')
+            #advanced-setting.collapse
+              - @agent.source.advanced_options.each do |key|
+                - v = @agent.source.details.attributes[key.to_s]
+                = f_source.input key.to_sym, :input_html => { :value => v, class: "form-control"}
+                - if @agent.source.try(:fields_descriptions).present?
+                  %small.form-text.text-muted= @agent.source.fields_descriptions[key]
+      %a.btn.btn-primary.scroll-top{data: {toggle: :tab}, href: '#outputs'} Next
+
+    #outputs.tab-pane.fade
+      = render 'shared/settings/outputs', f: f
+
+  -#= render 'shared/settings/common_settings_page', action: plugin_setting_form_action_url(@fluentd), action_type: 'add'
+-#= form_for(@agent, url: plugin_setting_form_action_url, html: {class: "ignore-rails-error-div"}) do |form|
+  .tab-content
+    #source.tab-pane.fade.in.active
+      - page_title "#{t("fluentd.settings.page_add")} #{t("fluentd.settings.#{target_plugin_name}.show.page_title")}"
+
+      .well
+        = raw t("fluentd.settings.#{target_plugin_name}.option_guide")
+
+      = render "shared/setting_errors"
+
+      - # NOTE: plugin_setting_form_action_url is defined at SettingConcern
+
+      = form.fields_for :source do |source_fields|
+        = source_fields.fields_for :details do |details_fields|
+          -#= details_fields.text_field :consumer_key
+          - @agent.source.common_options.each do |key|
+            = field(details_fields, key)
+
+          - if @agent.source.advanced_options.present?
+            .well.well-sm
+              %h4{"data-toggle" => "collapse", "href" => "#advanced-setting"}
+                = icon('fa-caret-down')
+                = t('terms.advanced_setting')
+              #advanced-setting.collapse
+                - @agent.source.advanced_options.each do |key|
+                  = field(details_fields, key)
+          - if @section_id.present?
+            = hidden_field_tag :id, @section_id
+    = form.submit t('fluentd.common.finish'), class: "btn btn-lg btn-primary pull-right"

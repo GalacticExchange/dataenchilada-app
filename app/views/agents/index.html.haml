@@ -1,0 +1,27 @@
+%h1 Agents
+=link_to 'Add new +', new_agent_path, class: 'btn btn-lg btn-success'
+%br
+%br
+
+%table.table
+  %tr
+    %th Agent
+    %th Type
+    %th Tag
+    %th Status
+    %th Commands
+
+  - @items.each do |item|
+    %tr
+      %td
+        =link_to item.title, agent_path(item)
+      %td
+        = item.name
+      %td
+        = item.tag
+      %td
+        = item.status
+      %td
+        =link_to 'Edit', '#', class: 'btn btn-sm btn-primary'
+        =link_to 'Config', '#', class: 'btn btn-sm btn-primary'
+        =link_to 'Manage', manage_agent_path(item), class: 'btn btn-sm btn-primary'

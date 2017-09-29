@@ -1,0 +1,11 @@
+version: "2"
+services:
+  es:
+    image: elasticsearch
+  web:
+    image: zhron4x/foodtrucks-web
+    command: python app.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code

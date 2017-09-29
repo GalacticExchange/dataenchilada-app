@@ -1,0 +1,395 @@
+en:
+  messages:
+    please_sign_in: Sign in
+    login_failed: Login failed
+    destroy_succeed_fluentd_setting: "Deleted %{brand} setting"
+    available_new_fluentd_ui: 'fluentd-ui %{version} is available. <a href="%{update_url}">Go to system information page</a>'
+    fluentd_start_failed: Failed to start DataEnchilada
+    fluentd_stop_failed: Failed to stop DataEnchilada
+    fluentd_restart_failed: Failed to restart DataEnchilada
+    fluentd_start_stop_delay_notice: "'%{action} daemon' is accepted. That operation could take a minute for complete."
+    password_successfully_updated: "Your password has been changed successfully."
+    fluentd_status_running: Running
+    fluentd_status_stopped: Stopped
+    config_successfully_copied: "Config has been copied successfully. Please restart %{brand} to use the new config"
+    note_updating_success: "Note successfully updated."
+    dryrun_is_passed: config test passed
+    no_diff: There is no difference in files.
+
+  terms: &terms
+    name: Name
+    password: Password
+    sign_in: Sign in
+    sign_out: Sign out
+    install: Install
+    uninstall: Uninstall
+    upgrade: Upgrade
+    installed: Installed
+    not_installed: Not Installed
+    processing: Processing
+    new_version: "%{version} is available"
+    install_latest: Install latest
+    installed_plugins: Installed Plugins
+    plugins: Plugins
+    misc: Miscellaneous
+    version: Version
+    fluent_version: "DataEnchilada %{version}"
+    no_alert: Nothing
+    update_password: Update Password
+    detail: Detail
+    cancel: Cancel
+    create: Create
+    update: Update & Restart
+    save: Save
+    edit: Edit
+    destroy: Remove
+    enable: Enable
+    disable: Disable
+    view_full_config: "Advanced: show and edit config as xml"
+    new_listener_desc: Element will be added with default config
+    new: New
+    initial_setup: Setup
+    setup: "Set Up %{target}"
+    install_it: "Install %{target}"
+    installing: "Installing: %{target}"
+    uninstalling: "Uninstalling: %{target}"
+    search: Search
+    changeme_password: '<a href="/user">Change the password</a> from default for your security'
+    destroy_confirm_title: "%{target} Deletion"
+    confirm_body: |
+      Really %{action}?
+    reload_log: Reload log
+    auto_reload: "Auto Reload(every %{seconds} seconds)"
+    next: Next
+    prev: Prev
+    beginning: From beginning
+    advanced_setting: Advanced Settings
+    notice_restart_for_config_edit: "NOTICE: running %{brand} will restart after update config"
+    lines: Lines
+    languages: Language
+    backup_file: Backup File
+    backup_time: Backed up at
+    note: Note
+    reuse: reuse
+    configtest: config test
+
+  plugins:
+    view_on_rubygems_org: View on rubygems.org
+    common:
+      name: Plugin Name
+      status: Status
+      authors: Authors
+      summary: Summary
+      category: Category
+      installed_version: Installed Version
+      latest_version: Latest Version
+      install_specific_version: Install this version
+      install_latest_version: Install latest version
+      no_updates: No updates available
+      no_installed: No installed plugins
+    installed:
+      page_title: Installed Plugins
+    recommended:
+      page_title: Recommended Plugins
+    updated:
+      page_title: Updated Plugins
+
+  users:
+    show:
+      page_title: Change Password
+
+  fluentd:
+    common:
+      start: Start
+      stop: Stop
+      restart: Restart
+      log: Log
+      view_error_log: View error log
+      view_log: View App log
+      stopped: Stopped
+      running: Running
+      operation: Detail
+      edit_config: Edit Config
+      raw_edit_config: Edit Config file directory
+      config_file: Config file
+      page_title: "%{label}"
+      setup_in_tail: Local File
+      setup_in_twitter: Twitter
+      setup_in_sql: Sql
+      setup_in_syslog: Syslog Protocol
+      setup_in_monitor_agent: Monitoring Agent
+      setup_in_http: Http Input
+      setup_in_http_mixpanel: Mixpanel input
+      setup_in_forward: Remote Machines
+      setup_in_netflow: Netflow
+      setup_out_td: Treasure Data
+      setup_out_mongo: MongoDB
+      setup_out_stdout: stdout (log)
+      setup_out_forward: Forwarding
+      setup_out_s3: Amazon S3
+      setup_out_elasticsearch: Elasticsearch
+      finish: Update & Restart
+      fluentd_info: Setting info
+      recent_errors: "Errors within recent %{days} days"
+      raw_log_link: Download
+      destroy_fluentd_setting: "Delete %{brand} setting"
+      destroy_fluentd_setting_warning: |
+        Delete %{brand} setting.
+
+        <p>Running %{brand} will be stopped, but log and config file are still exists.</p>
+      never_started_yet: "%{brand} had never been started yet."
+    show:
+      page_title: Dashboard
+      current: Current settings
+    new:
+      page_title: New DataEnchilada Configuration
+    edit:
+      page_title: Edit DataEnchilada Configuration
+    log:
+      page_title: DataEnchilada application log
+    errors:
+      page_title: Error log
+      error_is_empty: No errors
+    settings:
+      page_add: Configure
+      page_edit: Edit
+      source_and_output:
+        page_title: Add Source and Output
+        in: Source
+        out: Output
+        current: Current setting
+        setting_empty: No active sources
+      source:
+        page_title: Sources
+        current: Current settings
+        listeners: Listeners
+        setting_empty: No active sources
+      connector:
+        page_title: Connectors
+      show:
+        page_title: Config File
+        in_out_head: In/Out setting
+        link_to_histories: See more histories
+      edit:
+        page_title: Edit Config File
+      out_forward:
+        option_guide: |
+          For each config parameter, please refer to the <a href="http://docs.fluentd.org/articles/out_forward" target="_blank">Forward output plugin</a> documentation page.
+        secondary_note: |
+          All servers are unavailable, store data as a file to specified path.
+        show:
+          page_title: Output to another DataEnchilada
+      out_s3:
+        option_guide: |
+          For each config parameter, please refer to the <a href="http://docs.fluentd.org/articles/out_s3" target="_blank">Amazon S3 output plugin</a> documentation page.
+        show:
+          page_title: Output to Amazon S3
+      out_td:
+        option_guide: |
+          For each config parameter, please refer to the <a href="http://docs.fluentd.org/articles/out_td" target="_blank">Treasure Data output plugin</a> documentation page.
+        show:
+          page_title: Output to Treasure Data
+      out_elasticsearch:
+        option_guide: |
+          For each config parameter, please refer to the <a target="_blank" href="https://github.com/uken/fluent-plugin-elasticsearch">Elasticsearch output plugin</a>  documentation page.
+        show:
+          page_title: Output to Elasticsearch
+      out_mongo:
+        option_guide: |
+          For each config parameter, please refer to the <a href="http://docs.fluentd.org/articles/out_mongo" target="_blank">MongoDB output plugin</a> documentation page.
+        show:
+          page_title: Output to MongoDB
+      out_stdout:
+        option_guide: |
+          Print events to STDOUT (or fluentd log file if launched with daemon mode). Please refer to the <a href="http://docs.fluentd.org/articles/out_stdout" target="_blank">stdout output plugin</a> documentation page.
+        show:
+          page_title: stdout (log)
+      in_syslog:
+        option_guide: |
+          For each config parameter, please refer to the <a href="http://docs.fluentd.org/articles/in_syslog" target="_blank">MongoDB output plugin</a> documentation page.
+        show:
+          page_title: Input from Syslog Protocol
+      in_monitor_agent:
+        option_guide: |
+          Monitoring agent returns current fluentd/td-agent setting as JSON via HTTP. <br />
+          Please see refer to the <a target="_blank" href="http://docs.fluentd.org/articles/monitoring">Monitoring Agent</a> documentation page.
+        show:
+          page_title: Monitoring Agent (monitor_agent)
+      in_http:
+        option_guide: |
+          Retrieve records from http POST.<br />
+          The URL path becomes the tag of the Fluentd event log and the POSTed body element becomes the record itself.<br />
+          Please see refer to the <a target="_blank" href="http://docs.fluentd.org/articles/in_http">http Input Plugin</a> documentation page.
+        show:
+          page_title: http Input Plugin
+      in_netflow:
+        option_guide: |
+          Input plugin that acts as Netflow v5/v9 collector.<br />
+          Please see refer to the <a target="_blank" href="https://github.com/repeatedly/fluent-plugin-netflow">Netflow Input Plugin</a> documentation page.
+        show:
+          page_title: Netflow Input Plugin
+      in_mixpanel:
+        option_guide: |
+          DataEnchilada plugin to integrate <a target="_blank" href="https://mixpanel.com/help/reference/javascript">mixpanel javascript libraries</a>.<br /><br />
+          Example js config:
+          <pre>
+            &lt;!-- start Mixpanel --&gt;
+            &lt;script type="text/javascript"&gt;
+              (function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");
+                          b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:f="mixpanel";g.people=g.people||[];h=['disable','track','track_pageview','track_links','track_forms','register','register_once','unregister','identify','alias','name_tag','set_config','people.set','people.set_once','people.increment','people.track_charge','people.append'];for(e=0;e&lt;h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.2;})(document,window.mixpanel||[]);
+                      mixpanel.init("YOUR_MIXPANEL_TOKEN", {
+                          api_host: 'YOUR_IP_ADDRESS:PORT'
+                      });
+            &lt;/script&gt;
+            &lt;!-- end Mixpanel --&gt;
+          </pre>
+        show:
+          page_title: Http Mixpanel Input
+      in_twitter:
+        option_guide: |
+          Input plugin to process tweets with Twitter Streaming API
+        show:
+          page_title: Twitter Input Plugin
+      in_kafka:
+        option_guide: |
+          A fluentd plugin to both consume and produce data for Apache Kafka. See <a target="_blank" href="https://github.com/fluent/fluent-plugin-kafka">documentation</a> for more information.
+        show:
+          page_title: Kafka Input Plugin
+      in_sql:
+        main_form:
+          option_guide: |
+            SQL input plugin reads records from RDBMSes periodically. An example use case would be getting "diffs" of a table (based on the "updated_at" field).
+          page_title: Sql Input Plugin
+          tracked_tables: Tracked table
+          add_table:  + Add table
+          no_table_notice: "* If you will not add tables, so 'All tables' flag will be accepted"
+        table_form:
+          remove: Remove
+          table: Table
+      in_forward:
+        option_guide: |
+          Listen to a TCP socket to receive the event stream and an UDP socket to receive heartbeat messages.
+          Please see refer to the <a target="_blank" href="http://docs.fluentd.org/articles/in_forward">forward Input Plugin</a> documentation page.
+        show:
+          page_title: Another Machine
+      in_tail_option_guide: |
+          For each config parameter, please refer to the <a href="http://docs.fluentd.org/articles/in_tail" target="_blank">Tail input plugin</a> documentation page.
+      in_tail:
+        notice_for_permission: "Please check permission or group setting for %{user} user can read it."
+        notice_for_multiline_limit: "Please input Regexp(s) separated by newline. blank lines are ignored. Lines more than 20 are dropped."
+        restart_from_first: Restart from first
+        grok_manual: |
+          <p>
+          Grok syntax, for example, <code>%{INT:foo}</code> pattern given then translate to <code>/(?&lt;foo&gt;(?:[+-]?(?:[0-9]+)))/</code> regexp.
+          </p>
+          <p>
+          Available key/value are <a href="http://grokdebug.herokuapp.com/patterns" target="_blank">here</a>.
+          </p>
+
+          <h4>Example</h4>
+
+          <p>
+          <code>Nov 29 17:02:55 MacBook-Pro-2.local UserEventAgent[239] : cannot find fw daemon port 1102</code> the log you have,<br />
+          <code>%{MONTH:month}%{SPACE}%{MONTHDAY:day} %{TIME:time} %{DATA} \[%{INT:pid}\]</code> for matching that, you will gain following result.
+          </p>
+
+          <table class="table">
+          <thead>
+          <tr>
+          <th>Key</th>
+          <th>Value</th>
+          </tr>
+          </thead>
+
+            <tr>
+            <th>month</th><td>Nov</td>
+            </tr>
+            <tr>
+            <th>day</th><td>29</td>
+            </tr>
+            <tr>
+            <th>time</th><td>17:02:55</td>
+            </tr>
+            <tr>
+            <th>pid</th><td>239</td>
+            </tr>
+          </table>
+        show:
+          page_title: "Choose File Path"
+        after_file_choose:
+          page_title: "Select File Format"
+        after_format:
+          page_title: "Config Parameters"
+        confirm:
+          page_title: "Confirmation"
+      history: "Setting History"
+      histories:
+        index:
+          page_title: "Setting Histories"
+        show:
+          page_title: "Reuse Setting History"
+          target_config: "Target Config"
+          current_config: "Current Config"
+          diff_description: "diff between current config and target config(%{file_name}) (showing with '+' and '-' if any)"
+          show_current: "> see current config"
+      running_backup:
+        title: "Running Config"
+        show:
+          page_title: "Running Config"
+          diff_description: "diff between config and running config (showing with '+' and '-' if any)"
+          show_current: "> see current config"
+
+  misc:
+    information:
+      env: Environment Variable
+      env_key: Key
+      env_value: Value
+      page_title: System Information
+      update_fluentd_ui: "Update %{title}"
+      update_fluentd_ui_caution: "Note: %{brand} will not restart"
+      download_system_information: Download System Information
+    update_fluentd_ui:
+      update_title: "Updating %{title}"
+      updating: Updating..
+      update_finish: Update finished!
+      failed: "Failed to update. Please see %{title} log"
+
+  errors:
+    messages: &error_messages
+      wrong_password: is wrong
+      lack_read_permission: doesn't readable
+      lack_write_permission: doesn't writable
+      is_a_directory: is a directory. should be a file
+      duplicated_conf: Configurations is duplicated
+      out_forward_blank_server: server settings should be at least one
+
+  activemodel: &activemodel
+    errors:
+      messages:
+        <<: *error_messages
+
+    models:
+      user: user  #g
+
+    attributes:
+      user:
+        name: Name
+        password_digest: password_digest  #g
+        remember_token: remember_token  #g
+        current_password: Current Password
+        password: New Password
+        password_confirmation: New Password (confirmation)
+      fluentd:
+        log_file: Log file
+        pid_file: PID file
+        config_file: Config file
+        variant: type
+        api_endpoint: API Endpoint
+
+  activerecord: # for rspec
+    <<: *activemodel
+  agents:
+    page_title: Agents
+    new:
+      page_title: Please, choose Source
+      choose: Choose

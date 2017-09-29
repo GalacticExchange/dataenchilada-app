@@ -1,0 +1,20 @@
+<source>
+  @type <%=source.plugin_name%>
+  host <%=source.details.host%>
+  database <%=source.details.database%>
+  adapter <%=source.details.adapter%>
+  username <%=source.details.username%>
+  password <%=source.details.password%>
+  <%= "select_interval #{source.details.select_interval}" if source.details.select_interval.present? %>
+  <%= "select_limit #{source.details.select_limit}" if source.details.select_limit.present? %>
+
+  <% source.tables.each do |table| %>
+    <table>
+      tag <%=tag%>
+      table <%=table.table%>
+      update_column <%=table.update_column_val%>
+      <%= "time_column #{table.time_column}" if table.time_column.present? %>
+      <%= "primary_key #{table.primary_key}" if table.primary_key.present? %>
+    </table>
+  <% end %>
+</source>

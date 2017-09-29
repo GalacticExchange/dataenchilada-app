@@ -1,0 +1,107 @@
+- content_for(:page_title) do
+  = "#{t("fluentd.settings.page_#{action_type}")} #{t(".page_title")}"
+= vertical_simple_form_for(@agent, url: plugin_setting_form_action_url, defaults: { input_html: { class: "new-input" } }) do |f|
+  .tab-content
+    #source.tab-pane.fade.in.active
+      %h1.page-header
+        = "#{t("fluentd.settings.page_#{action_type}")} #{t(".page_title")}"
+
+      .well
+        = raw t(".option_guide")
+      = f.input :title, label: 'Name of Agent', input_html: {class: "form-control"}
+      = f.input :tag, label: 'Tag', input_html: {class: "form-control"}
+
+      = render "shared/setting_errors"
+
+      - # NOTE: plugin_setting_form_action_url is defined at SettingConcern
+      -#= form_for(@setting, url: action, html: {class: "ignore-rails-error-div"}) do |f|
+
+      .row
+        .col-xs-4
+          %h2= "Main DB settings"
+          = f.simple_fields_for :source do |f_source|
+            - @agent.source.common_options.each do |key|
+              - v = @agent.source.details.attributes[key.to_s]
+              = f_source.input key.to_sym, :input_html => { :value => v, class: "form-control"}
+              - if @agent.source.try(:fields_descriptions).present?
+                %small.form-text.text-muted= @agent.source.fields_descriptions[key]
+              -#= field(f, key)
+            - if @agent.source.advanced_options.present?
+              .well.well-sm
+                %h4{"data-toggle" => "collapse", "href" => "#advanced-setting"}
+                  = icon('fa-caret-down')
+                  = t('terms.advanced_setting')
+                #advanced-setting.collapse
+                  - @agent.source.advanced_options.each do |key|
+                    - v = @agent.source.details.attributes[key.to_s]
+                    = f_source.input key.to_sym, :input_html => { :value => v, class: "form-control"}
+                    -#- binding.pry
+                    - if @agent.source.try(:fields_descriptions).present?
+                      %small.form-text.text-muted= @agent.source.fields_descriptions[key]
+                    -#= field(f, key)
+                -#.form-group
+                -#  = f.check_box :all_tables
+                -#  = f.label :all_tables
+                -#  %br
+                -#  %small.form-text.text-muted
+                -#    = @setting.fields_descriptions[:all_tables]
+        -#.col-xs-8#tables-column{style: ("display: none" if @setting.all_tables)}
+        .col-xs-8#tables-column
+          %h2= t('.tracked_tables')
+          -#.col-xs-12.well
+          -#  %button#add-table.btn.btn-avg.btn-success= t('.add_table')
+          -#  %small.form-text.text-muted.pull-right
+          -#    = t('.no_table_notice')
+          #tables_container
+            - if @agent.source.tables.present?
+              - @agent.source.tables.each_with_index do |table, index|
+                = render partial: 'fluentd/settings/in_sql/table_form', locals: {table: table, index: index, table_count: @agent.source.tables.size}
+      - if @section_id.present?
+        = hidden_field_tag :id, @section_id
+      %a.btn.btn-primary.scroll-top{data: {toggle: :tab}, href: '#outputs'} Next
+      -#= f.submit t('fluentd.common.finish'), class: "btn btn-lg btn-primary pull-left"
+    #outputs.tab-pane.fade
+      %h1.page-header
+        = "Choose outputs for your stream"
+      -#.well
+        = raw t("fluentd.settings.#{target_plugin_name}.option_guide")
+
+      = f.simple_fields_for :outputs do |f_output|
+        - Output::OUTPUT_TYPES.each do |key, value|
+          = f_output.input key, as: :boolean, checked_value: true, unchecked_value: false
+      = f.button :submit, class:"btn btn-primary", :value=>"Save", "data-btn"=>"source-save", :data => { :disable_with => "Validating..." }
+
+-#:javascript
+-#  function updateTables() {
+-#    var text_blocks = $('.table-block');
+-#    if (text_blocks.length == 1) {
+-#      $('.remove-table-block').hide();
+-#    } else {
+-#      $('.remove-table-block').show();
+-#    }
+-#    text_blocks.each(function(index){$(this).find('h4 span').text(index+1)});
+-#  }
+-#
+-#  $('#tables_container').on('click', '.remove-table-block', function(e) {
+-#    e.preventDefault();
+-#    if (confirm('Are you sure to delete this table?')) {
+-#      $(this).closest('.table-block').remove();
+-#      updateTables();
+-#    }
+-#  });
+-#
+-#  $('#add-table').click(function(e) {
+-#    e.preventDefault();
+-#    var html = "#{escape_javascript(render partial: 'fluentd/settings/in_sql/table_form', locals: {table: @agent.source.tables.first.class.new, index: rand(99..9999), table_count: 2})}";
+-#    $('#tables_container').append(html);
+-#    updateTables();
+-#  });
+-#
+-#  // $('#fluentd_setting_in_sql_all_tables').change(function() {
+-#  //   var text_blocks = $('.table-block');
+-#  //   if ($(this).prop('checked')) {
+-#  //     $('#tables-column').hide();
+-#  //   } else if (!$(this).prop('checked')) {
+-#  //     $('#tables-column').show();
+-#  //   }
+-#  // });

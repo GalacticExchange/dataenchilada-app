@@ -1,0 +1,6 @@
+- if @agent.source.details.errors.present? || @agent.errors.present?
+  .well.well-sm
+    - @agent.source.details.errors.full_messages.each do |msg|
+      .text.text-danger= msg
+    - @agent.errors.full_messages.each do |msg|
+      .text.text-danger= msg

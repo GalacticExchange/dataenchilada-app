@@ -1,0 +1,25 @@
+<!-- vue.js -->
+<% auto_reload ||= true %>
+<div id="fluent-log" logUrl="<%= log_path %>" initialAutoReload="<%= auto_reload ? "true" : "" %>">
+  <div class="bottom-margin form-inline">
+    <button class="btn btn-primary" v-on="click: fetchLogs">
+      <%= t "terms.reload_log" %>
+    </button>
+    <input type="text" v-model="limit" size="4" v-on="keyup: fetchLogs | key enter" class="form-control"/>
+    <%= t('terms.lines') %>
+    <label>
+      <input type="checkbox" v-model="autoFetch" /> <%= t "terms.auto_reload", seconds: 1 %>
+    </label>
+    <span v-if="processing"><%= icon('fa-spin fa-refresh') %></span>
+  </div>
+
+<pre v-if="isPresentedLogs"><!-- be careful indent -->
+<div class="log"><span v-repeat="logs">{{ $value }}
+</span></div></pre>
+
+  <div v-if="!isPresentedLogs && !processing">
+    <p>[log is empty]</p>
+  </div>
+</div>
+<!-- /vue.js -->
+

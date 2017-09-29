@@ -1,0 +1,12 @@
+<source>
+  @type <%=source.plugin_name%>
+
+  bind <%=source.details.bind%>
+  port <%=source.details.port%>
+
+  <%= "linger_timeout #{source.details.linger_timeout}" if source.details.linger_timeout.present? %>
+  <%= "chunk_size_limit #{source.details.chunk_size_limit}" if source.details.chunk_size_limit.present? %>
+  <%= "chunk_size_warn_limit #{source.details.chunk_size_warn_limit}" if source.details.chunk_size_warn_limit.present? %>
+  <%= "log_level #{source.details.log_level}" if source.details.log_level.present? %>
+</source>
+

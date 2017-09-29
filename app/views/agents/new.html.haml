@@ -1,0 +1,13 @@
+- page_title t('.page_title')
+
+.row.fluentd-setting-inout
+  - settings_types_with_icons.each do |type, params|
+    .col-lg-2.col-md-4.col-xs-12
+      .panel.panel-default
+        .panel-heading
+          %h4
+            = icon("#{params[:icon]} fa-lg")
+            = t("fluentd.common.setup_in_#{type}")
+        .panel-body
+          %p
+            = link_to('Choose', send("daemon_setting_in_#{type}_path", @fluentd), class: %i(btn btn-default btn-block btn-success))

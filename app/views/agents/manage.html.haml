@@ -1,0 +1,35 @@
+%h1 Agent: #{@agent.title}
+%hr
+%b name:
+#{@agent.conf_name}
+%br
+%b status:
+#{@agent.status}
+%br
+%b tag:
+#{@agent.tag}
+
+%br
+%br
+Manage:
+
+=link_to 'Run', command_agent_path(agent: @agent, cmd: 'run'), method: :post, class: 'btn btn-primary'
+=link_to 'Start', command_agent_path(agent: @agent, cmd: 'start'), method: :post, class: 'btn btn-primary'
+=link_to 'Stop', command_agent_path(agent: @agent, cmd: 'stop'), method: :post, class: 'btn btn-primary'
+=link_to 'Restart', command_agent_path(agent: @agent, cmd: 'restart'), method: :post, class: 'btn btn-primary'
+%hr
+.row
+  .col-lg-6.col-xs-12
+    %h2 Log
+    = link_to raw_log_agent_path(@agent), class: "btn btn-primary pull-right" do
+      = icon('fa-download')
+      = t('fluentd.common.raw_log_link')
+    = preserve do
+      = render partial: "shared/vue/fluent_log", locals: { log_path: @agent.log_path }
+  .col-lg-6.col-xs-12
+    %h2
+      Config
+      = link_to t('terms.edit'), edit_config_agent_path(@agent), class: "btn btn-default pull-right"
+    %pre
+      = preserve do
+        = @agent.config

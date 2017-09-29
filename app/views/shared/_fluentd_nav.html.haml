@@ -1,0 +1,12 @@
+%h4
+  = @fluentd.agent.running? ? t("fluentd.common.running") : t("fluentd.common.stopped")
+
+- if flash[:error]
+  .alert.alert-danger= flash[:error]
+
+= link_to t("fluentd.common.detail"), daemon_path(@fluentd)
+= link_to t("fluentd.common.start"), start_daemon_agent_path(@fluentd), method: :put
+= link_to t("fluentd.common.stop"), stop_daemon_agent_path(@fluentd), method: :put
+= link_to t("fluentd.common.restart"), restart_daemon_agent_path(@fluentd), method: :put
+= link_to t("fluentd.common.log"), log_daemon_agent_path(@fluentd)
+= link_to t("fluentd.common.config_file"), daemon_setting_path(@fluentd)

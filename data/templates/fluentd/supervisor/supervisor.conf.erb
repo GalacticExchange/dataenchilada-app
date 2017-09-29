@@ -1,0 +1,11 @@
+[program:data_enchilada_agent_<%=agent.conf_name%>]
+#directory=/tmp/fluentd
+directory=/var/www/apps/data_enchilada
+command=/var/www/apps/data_enchilada/scripts/run_fluentd.sh <%=agent.config_path%>
+#command=/usr/local/rvm/gems/ruby-2.3.3/bin/bundle exec <%=cmd%>
+#command=/usr/local/rvm/gems/ruby-2.3.3/bin/fluentd <%=cmd%>
+autostart=true
+autorestart=true
+#redirect_stderr=true
+stderr_logfile=/var/log/data_enchilada_agent_<%=agent.conf_name%>.err.log
+stdout_logfile=/var/log/data_enchilada_agent_<%=agent.conf_name%>.out.log

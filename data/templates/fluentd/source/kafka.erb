@@ -1,0 +1,17 @@
+<source>
+  @type <%=source.plugin_name%>
+  tag <%=tag%>
+
+  brokers <%=source.details.brokers%>
+  topics <%=source.details.topics%>
+  format <%=source.details.format%>
+
+  <%= "message_key #{source.details.message_key}" if source.details.message_key.present? %>
+  <%= "add_prefix #{source.details.add_prefix}" if source.details.add_prefix.present? %>
+  <%= "add_suffix #{source.details.add_suffix}" if source.details.add_suffix.present? %>
+  <%= "offset_zookeeper #{source.details.offset_zookeeper}" if source.details.add_prefix.present? %>
+  <%= "offset_zk_root_node #{source.details.offset_zk_root_node}" if source.details.offset_zk_root_node.present? %>
+  <%= "max_bytes #{source.details.max_bytes}" if source.details.max_bytes.present? %>
+  <%= "max_wait_time #{source.details.max_wait_time}" if source.details.max_wait_time.present? %>
+  <%= "min_bytes #{source.details.min_bytes}" if source.details.min_bytes.present? %>
+</source>

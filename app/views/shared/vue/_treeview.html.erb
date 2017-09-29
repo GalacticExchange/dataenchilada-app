@@ -1,0 +1,36 @@
+<% name ||= "" %>
+<% action ||= "" %>
+<% submit_button ||= "" %>
+<%= form_tag(action, method: :post) do %>
+    <div class="form-group string optional agent_title">
+      <label class="control-label string optional" for="agent_title">Name of Agent</label>
+      <input class="new-input string optional form-control" type="text" value="My agent name" name="agent[title]" id="agent_title">
+      <label class="control-label string optional" for="agent_tag">Tag</label>
+      <input class="new-input string optional form-control" type="text" value="type_expected_tail_tag" name="agent[tag]" id="agent_tag">
+    </div>
+  <div id="treeview" initialPath="/var/log">
+    <pre>{{ path }}</pre>
+    <input type="hidden" name="<%= name %>" v-model="path" />
+    <div class="dirs">
+      <span v-repeat="currentDirs">
+        <span v-if="$index > 0">
+          <%= icon('fa-caret-right') %>
+        </span>
+        <span v-on="click: selectPath($value)" class="dir">{{ basename($value) }}</span>
+     </span>
+   </div>
+   <div class="tree">
+     <span v-on="click: selectPath(path)" class="vue-path" v-class="selected: isSelected(path)" v-repeat="paths">
+       <span v-if="is_dir"><%= icon("fa-folder") %></span>
+       <span v-if="!is_dir"><%= icon("fa-file-o") %></span>
+       {{ basename(path) }}
+       <br />
+     </span>
+   </div>
+
+   <pre v-if="preview" class="preview">{{ preview }}</pre>
+   <p>
+     <%= submit_tag submit_button, class: "btn btn-lg btn-primary pull-right", "v-attr" => "disabled: selectedIsDir", "v-class" => "btn-disable: selectedIsDir" %>
+   </p>
+  </div>
+<% end %>

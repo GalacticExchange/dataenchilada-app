@@ -1,0 +1,15 @@
+<match pattern>
+  @type forward
+  send_timeout 60s
+  recover_wait 10s
+  heartbeat_interval 1s
+  phi_threshold 16
+  hard_timeout 60s
+
+  <server>
+    name myserver1
+    host 192.168.1.3
+    port 24224
+    weight 60
+  </server>
+</match>

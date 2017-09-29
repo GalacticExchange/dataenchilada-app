@@ -1,0 +1,10 @@
+  @type kafka
+
+  zookeeper <%=servers['kafka']['zookeeper_url']%>
+  #brokers 10.1.0.11:9092
+  default_topic <%=props['topic']%>
+
+  output_data_type json
+  flush_interval 1s
+  buffer_type memory
+  get_kafka_client_log true

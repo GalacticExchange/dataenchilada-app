@@ -1,0 +1,44 @@
+<ul class="nav" id="side-menu">
+  <li>
+    <a class="section">
+      <%= icon("fa-puzzle-piece fa-fw") << "DataEnchilada" %>
+    </a>
+    <ul class="nav nav-second-level">
+      <li>
+        <%= link_to_other t('fluentd.show.page_title'), daemon_path %>
+      </li>
+      <li>
+        <%= link_to_other t('agents.page_title'), agents_path %>
+      </li>
+      <!--<li>-->
+        <!--<%= link_to_other t('fluentd.settings.show.page_title'), daemon_setting_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<%= link_to_other t('fluentd.common.log'), log_daemon_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<%= link_to_other t('fluentd.errors.page_title'), errors_daemon_path %>-->
+      <!--</li>-->
+    </ul>
+  </li>
+
+  <li>
+    <a class="section">
+      <%= icon('fa-coffee fa-fw') << t('terms.misc') %>
+    </a>
+    <ul class="nav nav-second-level">
+      <!--<li>-->
+        <!--<%= link_to_other t("misc.information.page_title"), misc_information_path %>-->
+      <!--</li>-->
+      <li>
+        <%= link_to_other t('users.show.page_title'), user_path %>
+      </li>
+      <!--
+      Not used for now (0.0.1 pre)
+      <li>
+        <%= link_to_other t('tutorials.index.page_title'), tutorials_path %>
+      </li>
+      -->
+    </ul>
+  </li>
+</ul>

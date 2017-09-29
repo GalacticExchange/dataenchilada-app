@@ -1,0 +1,9 @@
+- page_title t('.page_title', label: 'lol') do
+  - link_to raw_log_daemon_path, class: "btn btn-primary pull-right" do
+    = icon('fa-download')
+    = t('fluentd.common.raw_log_link')
+
+.row
+  .col-xs-12
+    = preserve do # partial containing <pre>, so shouldn't break indent
+      = render partial: "shared/vue/fluent_log", locals: { log_path: '' }

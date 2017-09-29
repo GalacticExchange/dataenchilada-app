@@ -1,0 +1,59 @@
+<script type="text/template" id="vue-setting-section">
+
+<div class="col-lg-3 col-xs-12 col-md-6">
+  <form id='edit-form-{{ id }}' action="{{ edit_link }}" method="post">
+    <div class='panel panel-default source-element'>
+      <div class='panel-heading' href='#{{ id }}' title='{{ content }}'>
+        <h4>
+          <i class="fa {{ icon }} fa-lg"></i> {{ type }}
+          <span v-if="name == 'match'">({{ arg }})</span>
+        </h4>
+      </div>
+      <div class='panel-body' id='{{ id }}'>
+        <pre class="source-preview">{{ preview }}</pre>
+        <!--<input v-model="toggle" v-on="click: onDelete" class="listener-trigger" checked="{{ existing_element }}" type="checkbox" data-toggle="toggle">-->
+        <button v-if="name == 'listener' && existing_element == true" type="button" class="btn btn-danger" v-on="click: onDelete"><%= t('terms.disable') %></button>
+        <a href="{{ create_link }}" v-if="name == 'listener' && existing_element != true" type="submit" class="btn btn-success"><%= t('terms.enable') %></a>
+        <!--<input v-if="name == 'listener' && existing_element == true" type="checkbox" v-on="click: onDelete" name="listener-trigger" checked />-->
+        <!--<input v-if="name == 'listener' && existing_element == false" type="checkbox" v-on="click: onDelete" name="listener-trigger" id="listener-trigger-{{ id }}" />-->
+        <p class="pull-right">
+          <button v-if="edit_link != '' && existing_element == true" class="btn btn-primary" type="submit"><%= t('terms.edit') %></button>
+          <div class="hide">
+            <input type="hidden" name="content" value="{{ content }}" />
+          </div>
+          <button v-if="name != 'listener'" type="button" class="btn btn-danger" v-on="click: onDelete"><%= t('terms.destroy') %></button>
+        </p>
+        <div class="clearfix"></div>
+        <a class="pull-right" href="#" v-if="existing_element == true" data-toggle="modal" data-target="#source-code-{{ id }}"><%= t('terms.view_full_config') %></a>
+        <small class="pull-right listener-description" v-if="existing_element == false"><%= t('terms.new_listener_desc') %></small>
+      </div>
+    </div>
+    <input type="hidden" name="id" value="{{ id }}" />
+  </form>
+</div>
+
+<div class="modal fade" id="source-code-{{ id }}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">
+          <i class="fa {{ icon }} fa-lg"></i> {{ type }}
+        </h4>
+      </div>
+      <div class="modal-body">
+        <pre v-if="mode != 'edit'">{{ content }}</pre>
+        <p v-if="mode == 'edit'">
+          <textarea v-config-editor class="form-control" v-model="editContent" v-attr="disabled: processing"></textarea>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button v-if="mode != 'edit'" class="btn btn-default" v-on="click: onEdit"><%= t('terms.edit') %></button>
+        <button v-if="mode == 'edit'" class="btn btn-default" v-on="click: onCancel"><%= t('terms.cancel') %></button>
+        <button v-if="mode == 'edit'" class="btn btn-primary" v-on="click: onSubmit"><%= t('terms.save') %></button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</script>

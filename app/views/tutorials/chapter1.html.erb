@@ -1,0 +1,31 @@
+<% # NOTE: Using .erb is for styling <pre> %>
+
+<% page_title t(".page_title") %>
+
+<p class="clearfix">
+  <%= link_to t('tutorials.chapter2.page_title') << " >>", tutorials_chapter2_path, class: "pull-right" %>
+</p>
+
+<p>
+  <%= t ".description" %>
+</p>
+
+<!-- vue.js -->
+<div id="chapter1">
+  <form>
+    <p v-repeat="payloads">
+      <input type="button" class="btn btn-default" v-on="click: sendRequest($data)" value="<%= t ".send" %>" />
+      <code>
+        $ curl -X POST http://localhost:<%= @in_http["port"] %>{{ path }} -F 'json={{ data | to_json }}'
+      </code>
+    </p>
+  </form>
+</div>
+<!-- /vue.js -->
+
+<%= render partial: "shared/vue/fluent_log", locals: { fluentd: @fluentd } %>
+
+<p class="clearfix">
+  <%= link_to t('tutorials.chapter2.page_title') << " >>", tutorials_chapter2_path, class: "pull-right" %>
+</p>
+

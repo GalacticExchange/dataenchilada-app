@@ -1,0 +1,8 @@
+- page_title "Edit config for agent: #{@agent.title}"
+
+= form_tag(update_config_agent_path(@agent), method: :post) do
+  .form-group
+    = text_area_tag "config", @agent.config, class: "form-control", rows: 40, class: "js-fluentd-config-editor"
+  %p.text.text-danger= t('terms.notice_restart_for_config_edit', brand: fluentd_ui_brand)
+  = submit_tag t("terms.update"), class: "btn btn-primary"
+  -#= submit_tag t("terms.configtest"), class: "btn btn-default", name: "dryrun"

@@ -1,0 +1,14 @@
+<source>
+  @type <%=source.plugin_name%>
+
+  bind <%=source.details.bind%>
+  port <%=source.details.port%>
+  body_size_limit <%=source.details.body_size_limit%>
+  keepalive_timeout <%=source.details.keepalive_timeout%>
+
+  <%= "add_http_headers #{source.details.add_http_headers}" if source.details.add_http_headers.present? %>
+  <%= "format #{source.details.format}" if source.details.format.present? %>
+  <%= "log_level #{source.details.log_level}" if source.details.log_level.present? %>
+  <%= "add_remote_addr #{source.details.add_remote_addr}" if source.details.add_remote_addr.present? %>
+</source>
+

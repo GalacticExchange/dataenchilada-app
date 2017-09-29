@@ -1,0 +1,22 @@
+<source>
+@type sql
+host 51.0.0.11
+database temp_logs
+adapter mysql2
+username gex
+password PH_GEX_PASSWD1
+select_interval 1s
+select_limit 20000
+tag_prefix test.test1
+<table>
+  table temp_events2
+  update_column id
+  time_column updated_at
+</table>
+</source>
+<match test.test1.*>
+  @type elasticsearch
+  host 10.1.0.11
+  index_name fluentd
+  type_name fluentd
+</match>
